@@ -1,8 +1,14 @@
 import React from 'react'
 import './header-container.css'
 
-const Header = () => (
-  <h1>Header</h1>
-)
+class Header extends React.Component {
+  render() {
+    return (
+      <div className='header-container'>
+        <a className='title' href='#title'>Stupid To-Dos</a>
+      </div>
+    )
+  }
+}
 
 export default Header
