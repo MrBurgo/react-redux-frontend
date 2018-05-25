@@ -14,7 +14,7 @@ const loginSubmit = ({ username, password }) => {
   }
   return (dispatch) => {
     fetch(url, opts)
-      .then(result => result.json)
+      .then(result => result.json())
       .then((result) => {
         const { token, error } = result
         if (error) {

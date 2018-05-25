@@ -1,7 +1,22 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { listTodos } from '../../actions/todo-actions'
 
-const TodoIndex = () => (
-  <h1>Todo Index</h1>
-)
+class TodoIndex extends React.Component {
+  componentDidMount() {
+    this.props.listTodos({ token: this.props.auth.token })
+  }
 
-export default TodoIndex
+
+  render() {
+    return (
+      <h1>Todo Index</h1>
+    )
+  }
+}
+
+const mapStateToProps = state => ({ auth: state.auth, todos: state.todos })
+const mapDispatchToProps = dispatch => bindActionCreators({ listTodos }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoIndex)
